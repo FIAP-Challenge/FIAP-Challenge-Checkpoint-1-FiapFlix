@@ -22,7 +22,7 @@ public class AtorDao {
 	
 	public void cadastrar(String nome, String nacionalidade) {
 		id += 1;
-		lista.add(new Ator(id, nome, nacionalidade));
+		lista.add(new Ator(id, nome.toUpperCase(), nacionalidade.toUpperCase()));
 	}
 
 	/**

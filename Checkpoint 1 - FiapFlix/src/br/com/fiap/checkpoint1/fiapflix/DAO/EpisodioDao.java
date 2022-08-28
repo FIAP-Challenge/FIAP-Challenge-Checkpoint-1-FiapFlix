@@ -3,7 +3,6 @@ package br.com.fiap.checkpoint1.fiapflix.DAO;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.fiap.checkpoint1.fiapflix.model.Ator;
 import br.com.fiap.checkpoint1.fiapflix.model.Episodio;
 
 /***
@@ -22,7 +21,7 @@ public class EpisodioDao {
 	 */
 	public void cadastrar(int numero, String nome, String descricao) {
 		id += 1;
-		lista.add(new Episodio(id, numero, nome, descricao));
+		lista.add(new Episodio(id, numero, nome.toUpperCase(), descricao.toUpperCase()));
 	}
 	
 	/**

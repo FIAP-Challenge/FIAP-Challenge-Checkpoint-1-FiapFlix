@@ -21,7 +21,7 @@ public class GeneroDao {
 	 */
 	public void cadastrar(String nome) {
 		id += 1;
-		lista.add(new Genero(id, nome));
+		lista.add(new Genero(id, nome.toUpperCase()));
 	}
 
 

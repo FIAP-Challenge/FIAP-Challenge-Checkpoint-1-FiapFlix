@@ -26,7 +26,7 @@ public class SerieDao {
 	public void cadastrar(String nome, String descricao, List<Genero> genero, List<Ator> ator, boolean destaque,
 			List<Episodio> episodio) {
 		id += 1;
-		lista.add(new Serie(id, nome, descricao, genero, ator, destaque, episodio));
+		lista.add(new Serie(id, nome.toUpperCase(), descricao.toUpperCase(), genero, ator, destaque, episodio));
 	}
 
 	/**

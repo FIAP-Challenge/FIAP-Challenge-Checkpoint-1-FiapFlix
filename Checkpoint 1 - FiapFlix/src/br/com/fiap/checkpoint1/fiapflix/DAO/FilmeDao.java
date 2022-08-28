@@ -24,7 +24,7 @@ public class FilmeDao {
 	
 	public void cadastrar(String nome, String descricao, List<Genero> genero, List<Ator> ator, boolean destaque) {
 		this.id += 1;
-		lista.add(new Filme(this.id, nome, descricao, genero, ator, destaque));
+		lista.add(new Filme(this.id, nome.toUpperCase(), descricao.toUpperCase(), genero, ator, destaque));
 		
 	}
 
@@ -165,7 +165,12 @@ public class FilmeDao {
 	/**
 	 * Lista todos os filmes
 	 */
-	public List<Filme> listarTodos() {		
+	public List<Filme> listarTodos() {
+		
+		if(lista.size() == 0) {
+			return null;
+		}
+		
 		return lista;
 	}
 	
