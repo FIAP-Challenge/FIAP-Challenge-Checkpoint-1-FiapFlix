@@ -5,21 +5,30 @@ import java.util.List;
 
 import br.com.fiap.checkpoint1.fiapflix.model.Ator;
 
-/***
+/**
  * Classe responsável por cadastrar, excluir e listar um Ator
  * @author Luan Reis
+ * @author Henrique Cesar
+ * @author Dennys Nascimento
+ * @author Gustavo Fontes
+ * @author Rodrigo Machado
  */
 
 public class AtorDao {
 
-	// A colecao que armazena os Atores da aplicacao
+	/**
+	 * A colecao que armazena os Atores da aplicacao
+	 */
 	private List<Ator> lista = new ArrayList<>();
+	
+	/**
+	 * Armazena o id de um ator cadastrado na lista
+	 */
 	private int id;
 
 	/**
 	 * Método que adiciona um ator a lista
 	 */
-	
 	public void cadastrar(String nome, String nacionalidade) {
 		id += 1;
 		lista.add(new Ator(id, nome, nacionalidade));

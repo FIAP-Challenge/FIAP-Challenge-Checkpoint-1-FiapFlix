@@ -9,12 +9,22 @@ import br.com.fiap.checkpoint1.fiapflix.model.Episodio;
 /***
  * Classe responsável por cadastrar, excluir e listar um Episodio
  * @author Luan Reis
+ * @author Henrique Cesar
+ * @author Dennys Nascimento
+ * @author Gustavo Fontes
+ * @author Rodrigo Machado
  */
 
 public class EpisodioDao {
 
-	// A colecao que armazena os Atores da aplicacao
+	/**
+	 *  A colecao que armazena os Atores da aplicacao
+	 */
 	private List<Episodio> lista = new ArrayList<>();
+	
+	/**
+	 * Armazena o id do episodio cadastrado na lista
+	 */
 	private int id;
 
 	/**

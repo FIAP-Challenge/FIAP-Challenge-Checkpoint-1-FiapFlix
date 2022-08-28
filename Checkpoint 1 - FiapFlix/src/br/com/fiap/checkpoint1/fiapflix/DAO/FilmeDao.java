@@ -11,17 +11,27 @@ import br.com.fiap.checkpoint1.fiapflix.model.Genero;
 /***
  * Classe responsável por cadastrar, excluir e listar um filme
  * @author Luan Reis
+ * @author Gustavo Fontes
+ * @author Henrique Cesar
+ * @author Rodrigo Machado
+ * @author Dennys Nascimento
  */
 
 public class FilmeDao {
 
-	// A colecao que armazena os filmees da aplicacao
+	/**
+	 *  A colecao que armazena os filmees da aplicacao
+	 */
 	private List<Filme> lista = new ArrayList<>();
+	
+	/**
+	 * Armazena o id do filme cadastrado na lista
+	 */
 	private int id;
+	
 	/**
 	 * Método que adiciona um filme a lista
 	 */
-	
 	public void cadastrar(String nome, String descricao, List<Genero> genero, List<Ator> ator, boolean destaque) {
 		this.id += 1;
 		lista.add(new Filme(this.id, nome, descricao, genero, ator, destaque));
@@ -160,8 +170,6 @@ public class FilmeDao {
 		return null;
 	}
 	
-	
-
 	/**
 	 * Lista todos os filmes
 	 */
@@ -169,15 +177,11 @@ public class FilmeDao {
 		return lista;
 	}
 	
-	
 	/**
 	 * Retorna o tamanho de filmes.
 	 */
 	public int verificaTamanhoLista() {
 		return lista.size();
 	}
-	
-	
-	
 
 }

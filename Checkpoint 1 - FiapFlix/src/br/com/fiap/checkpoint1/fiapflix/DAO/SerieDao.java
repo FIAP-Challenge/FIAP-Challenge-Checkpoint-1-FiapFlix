@@ -12,12 +12,22 @@ import br.com.fiap.checkpoint1.fiapflix.model.Serie;
 /***
  * Classe responsável por cadastrar, excluir e listar um serie
  * @author Luan Reis
+ * @author Henrique Cesar
+ * @author Dennys Nascimento
+ * @author Gustavo Fontes
+ * @author Rodrigo Machado
  */
 
 public class SerieDao {
 
-	// A colecao que armazena os seriees da aplicacao
+	/**
+	 *  A colecao que armazena os seriees da aplicacao
+	 */
 	private List<Serie> lista = new ArrayList<>();
+	
+	/**
+	 * Armazena o id de uma série cadastrada na lista
+	 */
 	private int id;
 
 	/**
@@ -98,11 +108,14 @@ public class SerieDao {
 		return null;
 	}
 	
+	/**
+	 * Retorna a lista de séries cadastradas
+	 * @return a lista de séries
+	 */
 	public List<Serie> listarTodos() {		
 		return lista;
 	}
-	
-	
+		
 	/**
 	 * Método que lista todos os series em destaques
 	 * 
@@ -166,9 +179,6 @@ public class SerieDao {
 		return null;
 	}
 	
-	
-
-
 	/**
 	 * Retorna o tamanho de series.
 	 */

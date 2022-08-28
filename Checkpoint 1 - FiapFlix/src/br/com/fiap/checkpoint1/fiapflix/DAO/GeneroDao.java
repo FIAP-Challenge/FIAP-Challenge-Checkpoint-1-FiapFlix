@@ -8,12 +8,22 @@ import br.com.fiap.checkpoint1.fiapflix.model.Genero;
 /***
  * Classe responsável por cadastrar, excluir e listar um Genero
  * @author Luan Reis
+ * @author Henrique Cesar
+ * @author Dennys Nascimento
+ * @author Gustavo Fontes
+ * @author Rodrigo Machado
  */
 
 public class GeneroDao {
 
-	// A colecao que armazena os generoes da aplicacao
+	/**
+	 *  A colecao que armazena os generoes da aplicacao
+	 */
 	private List<Genero> lista = new ArrayList<>();
+	
+	/**
+	 * Armazena o id do genero cadastrado na lista
+	 */
 	private int id;
 
 	/**
@@ -24,8 +34,6 @@ public class GeneroDao {
 		lista.add(new Genero(id, nome));
 	}
 
-
-	
 	/**
 	 * Método que remove um genero da lista por pelo id do genero
 	 * @param Nome do genero

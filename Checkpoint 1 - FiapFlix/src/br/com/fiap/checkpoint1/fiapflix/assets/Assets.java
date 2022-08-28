@@ -2,8 +2,21 @@ package br.com.fiap.checkpoint1.fiapflix.assets;
 
 import java.util.Iterator;
 
-public class Assets {
+/***
+ * Classe responsável por limpar o console, logo da fiapflix e exibir mensagens 
+ * @author Luan Reis
+ * @author Henrique Cesar
+ * @author Dennys Nascimento
+ * @author Gustavo Fontes
+ * @author Rodrigo Machado
+ */
 
+public class Assets {
+	
+	/**
+	 * Método que recebe o logo da Fiap flix
+	 * @return o logo do FiapFlix
+	 */
 	public String fiap() {
 		String f;
 
@@ -15,6 +28,10 @@ public class Assets {
 
 	}
 
+	/**
+	 * Método que printa iniciando...
+	 * @throws InterruptedException
+	 */
 	public void inicio() throws InterruptedException {
 		System.out.println(fiap());
 		System.out.println("");
@@ -28,11 +45,13 @@ public class Assets {
 				
 			}
 			System.out.println();
-			
-			
+				
 		}
 	}
 
+	/**
+	 * Método que limpa o console
+	 */
 	public void clear() {
 
 		for (int i = 0; i < 5; i++) {
@@ -50,6 +69,10 @@ public class Assets {
 
 	}
 
+	/**
+	 * Método que printa a mensagem 
+	 * no encerramento do projeto
+	 */
 	public void fim() {
 
 		for (int i = 0; i < 20; i++) {
