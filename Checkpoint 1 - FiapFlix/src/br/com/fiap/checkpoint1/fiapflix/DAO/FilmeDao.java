@@ -11,17 +11,27 @@ import br.com.fiap.checkpoint1.fiapflix.model.Genero;
 /***
  * Classe responsável por cadastrar, excluir e listar um filme
  * @author Luan Reis
+ * @author Gustavo Fontes
+ * @author Henrique Cesar
+ * @author Rodrigo Machado
+ * @author Dennys Nascimento
  */
 
 public class FilmeDao {
 
-	// A colecao que armazena os filmees da aplicacao
+	/**
+	 *  A colecao que armazena os filmees da aplicacao
+	 */
 	private List<Filme> lista = new ArrayList<>();
+	
+	/**
+	 * Armazena o id do filme cadastrado na lista
+	 */
 	private int id;
+	
 	/**
 	 * Método que adiciona um filme a lista
 	 */
-	
 	public void cadastrar(String nome, String descricao, List<Genero> genero, List<Ator> ator, boolean destaque) {
 		this.id += 1;
 		lista.add(new Filme(this.id, nome.toUpperCase(), descricao.toUpperCase(), genero, ator, destaque));
@@ -38,11 +48,9 @@ public class FilmeDao {
 		for (int i = 0; i < lista.size(); i++) {
 			if (lista.get(i).getId() == id) {
 				lista.remove(i);
-				System.out.println("Removido com sucesso");
 				return true;
 			}
 		}
-		System.out.println("ID não encontrado, tente novamente");
 		return false;
 	}
 
@@ -56,11 +64,9 @@ public class FilmeDao {
 		for (int i = 0; i < lista.size(); i++) {
 			if (lista.get(i).getNome().equalsIgnoreCase(nome)) {
 				lista.remove(i);
-				System.out.println("Removido com sucesso");
 				return true;
 			}
 		}
-		System.out.println("filme não encontrato, tente novamente");
 		return false;
 	}
 	
@@ -76,7 +82,7 @@ public class FilmeDao {
 				return lista.get(i) ;
 			}
 		}
-		System.out.println("ID não encontrado, tente novamente");
+
 		return null;
 		
 	}
@@ -89,12 +95,10 @@ public class FilmeDao {
 	 */
 	public Filme listarPorfilme(String nome) {
 		for (int i = 0; i < lista.size(); i++) {
-			if (lista.get(i).getNome().equals(nome)) {
-				System.out.println("Removido com sucesso");
+			if (lista.get(i).getNome().equalsIgnoreCase(nome)) {
 				return lista.get(i);
 			}
 		}
-		System.out.println("filme não encontrato, tente novamente");
 		return null;
 	}
 	
@@ -114,7 +118,6 @@ public class FilmeDao {
 				return destaques;
 			}
 		}
-		System.out.println("Não foi encontrado nenhum resultado, tente novamente");
 		return null;
 	}
 	
@@ -131,11 +134,9 @@ public class FilmeDao {
 		for (int i = 0; i < lista.size(); i++) {
 			if (lista.get(i).getId() == id) {
 				lista.set(i, new Filme(id, nome, descricao, genero, ator, destaque));
-				System.out.println("Filme atualizado com sucesso");
 				return lista.get(i);
 			}
 		}
-		System.out.println("Não foi encontrado nenhum resultado, tente novamente");
 		return null;
 	}
 	
@@ -147,21 +148,24 @@ public class FilmeDao {
 	 * Examplo
 	 * filme.editarFilmePeloNome(new Filme(10, "Harry potter", "Harry potter teve os pais mortos desde que criança", "Ficcao", "Daniel", true));
 	 */
-	public Filme editarFilmePeloNome(String nome, String descricao, List<Genero> genero, List<Ator> ator, boolean destaque ){
+	public Filme editarFilmePeloNome(String nome, String descricao, List<Genero> genero, List<Ator> ator, boolean destaque, boolean flag ){
 		for (int i = 0; i < lista.size(); i++) {
+			
+			
+			if(flag) {
+				lista.set(i, new Filme(lista.get(i).getId(),nome, descricao, genero, ator, destaque));
+				return lista.get(i);
+			}
+			
 			if (lista.get(i).getNome().equalsIgnoreCase(nome)) {
-				lista.set(i, new Filme(this.id, nome, descricao, genero, ator, destaque));
-				System.out.println("Filme atualizado com sucesso");
+				lista.set(i, new Filme(lista.get(i).getId(),nome, descricao, genero, ator, destaque));
 				return lista.get(i);
 			}
 			
 		}
-		System.out.println("Não foi encontrado nenhum resultado, tente novamente");
 		return null;
 	}
 	
-	
-
 	/**
 	 * Lista todos os filmes
 	 */
@@ -174,15 +178,11 @@ public class FilmeDao {
 		return lista;
 	}
 	
-	
 	/**
 	 * Retorna o tamanho de filmes.
 	 */
 	public int verificaTamanhoLista() {
 		return lista.size();
 	}
-	
-	
-	
 
 }

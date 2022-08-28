@@ -1,8 +1,14 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=e17bba171c16850407a222efa9d5eb2239b51b23
 content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="br.com.fiap.checkpoint1.fiapflix.DAO.GeneroDao"><rhs name\="br.com.fiap.checkpoint1.fiapflix.DAO.GeneroDao"/></lhs><lhs name\="br.com.fiap.checkpoint1.fiapflix.DAO.AtorDao"><rhs name\="br.com.fiap.checkpoint1.fiapflix.DAO.AtorDao"/></lhs><lhs name\="br.com.fiap.checkpoint1.fiapflix.DAO.EpisodioDao"><rhs name\="br.com.fiap.checkpoint1.fiapflix.DAO.EpisodioDao"/></lhs></history>
 content_assist_number_of_computers=13
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
 eclipse.preferences.version=1
-org.eclipse.jdt.ui.formatterprofiles.version=21
+org.eclipse.jdt.ui.formatterprofiles.version=22
 spelling_locale_initialized=true
 typefilter_migrated=true
+typefilter_migrated_2=true
 useAnnotationsPrefPage=true
 useQuickDiffPrefPage=true

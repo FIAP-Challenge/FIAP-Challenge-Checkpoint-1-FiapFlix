@@ -5,21 +5,30 @@ import java.util.List;
 
 import br.com.fiap.checkpoint1.fiapflix.model.Ator;
 
-/***
+/**
  * Classe responsável por cadastrar, excluir e listar um Ator
  * @author Luan Reis
+ * @author Henrique Cesar
+ * @author Dennys Nascimento
+ * @author Gustavo Fontes
+ * @author Rodrigo Machado
  */
 
 public class AtorDao {
 
-	// A colecao que armazena os Atores da aplicacao
+	/**
+	 * A colecao que armazena os Atores da aplicacao
+	 */
 	private List<Ator> lista = new ArrayList<>();
+	
+	/**
+	 * Armazena o id de um ator cadastrado na lista
+	 */
 	private int id;
 
 	/**
 	 * Método que adiciona um ator a lista
 	 */
-	
 	public void cadastrar(String nome, String nacionalidade) {
 		id += 1;
 		lista.add(new Ator(id, nome.toUpperCase(), nacionalidade.toUpperCase()));
@@ -35,11 +44,10 @@ public class AtorDao {
 		for (int i = 0; i < lista.size(); i++) {
 			if (lista.get(i).getId() == id) {
 				lista.remove(i);
-				System.out.println("Removido com sucesso");
 				return true;
 			}
 		}
-		System.out.println("ID não encontrado, tente novamente");
+		
 		return false;
 	}
 
@@ -51,13 +59,12 @@ public class AtorDao {
 	 */
 	public boolean removerPorNome(String nome) {
 		for (int i = 0; i < lista.size(); i++) {
-			if (lista.get(i).getNome().equals(nome)) {
+			if (lista.get(i).getNome().equalsIgnoreCase(nome)) {
 				lista.remove(i);
-				System.out.println("Removido com sucesso");
 				return true;
 			}
 		}
-		System.out.println("Nome não encontrato, tente novamente");
+
 		return false;
 	}
 

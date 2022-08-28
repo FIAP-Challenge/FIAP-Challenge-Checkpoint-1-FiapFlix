@@ -235,9 +235,9 @@ public class Viewer {
 						System.out.print("Digite o novo nome");
 						nome = sc.next() + sc.nextLine();
 
-						filmes.editarFilmePeloId(id, nome, filmes.listarPorId(id).getDescricao(),
+						filmes.editarFilmePeloNome(nome, filmes.listarPorId(id).getDescricao(),
 								filmes.listarPorId(id).getGenero(), filmes.listarPorId(id).getAtor(),
-								filmes.listarPorId(id).isDestaque());
+								filmes.listarPorId(id).isDestaque(), true);
 
 						break;
 
@@ -254,7 +254,6 @@ public class Viewer {
 
 					case 3:
 						
-						System.out.print("Digite o nova descrição: ");
 						String opcaoScope;
 						do {
 							System.out.print("Digite o nome do genero: ");
@@ -278,7 +277,7 @@ public class Viewer {
 						break;
 						
 					case 4:
-						System.out.print("Digite o nova descrição: ");
+					
 						do {
 							System.out.print("Digite o nome do ator: ");
 							String atorIn = sc.next() + sc.nextLine();
@@ -353,14 +352,13 @@ public class Viewer {
 								.print("O filme: " + nome + " será destaque para que seja apresentado na tela principal? [true ou false]: ");
 						destaque = sc.nextBoolean();
 
-						filmes.cadastrar(nome, descricao, genero.listar(), ator.listar(), destaque);				
+						filmes.editarFilmePeloNome(nome, descricao, genero.listar(), ator.listar(), destaque, true);				
 
 					break;
 					
 					case 7:
 						
-						
-						
+	
 						
 						break;
 						
@@ -401,12 +399,14 @@ public class Viewer {
 
 					case 1:
 
-						System.out.print("Digite o novo nome");
+						System.out.print("Digite o novo nome: ");
+						String nomeAntigo = filmes.listarPorfilme(nome).getNome();
 						nome = sc.next() + sc.nextLine();
 
-						filmes.editarFilmePeloNome(nome, filmes.listarPorfilme(nome).getDescricao(),
-								filmes.listarPorfilme(nome).getGenero(), filmes.listarPorfilme(nome).getAtor(),
-								filmes.listarPorfilme(nome).isDestaque());
+						System.out.println(nome);
+						filmes.editarFilmePeloNome(nome, filmes.listarPorfilme(nomeAntigo).getDescricao(),
+								filmes.listarPorfilme(nomeAntigo).getGenero(), filmes.listarPorfilme(nomeAntigo).getAtor(),
+								filmes.listarPorfilme(nomeAntigo).isDestaque(), true);
 
 						break;
 
@@ -417,7 +417,7 @@ public class Viewer {
 
 						filmes.editarFilmePeloNome(filmes.listarPorfilme(nome).getNome(), descricao,
 								filmes.listarPorfilme(nome).getGenero(), filmes.listarPorfilme(nome).getAtor(),
-								filmes.listarPorfilme(nome).isDestaque());
+								filmes.listarPorfilme(nome).isDestaque(), false);
 
 						break;
 
@@ -442,7 +442,7 @@ public class Viewer {
 
 						filmes.editarFilmePeloNome(filmes.listarPorfilme(nome).getNome(), filmes.listarPorfilme(nome).getDescricao(),
 								genero.listar(), filmes.listarPorfilme(nome).getAtor(),
-								filmes.listarPorfilme(nome).isDestaque());
+								filmes.listarPorfilme(nome).isDestaque(),false);
 
 						break;
 						
@@ -468,7 +468,7 @@ public class Viewer {
 
 						filmes.editarFilmePeloNome(filmes.listarPorfilme(nome).getNome(), filmes.listarPorfilme(nome).getDescricao(),
 								filmes.listarPorfilme(nome).getGenero(), ator.listar(),
-								filmes.listarPorfilme(nome).isDestaque());
+								filmes.listarPorfilme(nome).isDestaque(),false);
 
 						break;
 						
@@ -479,7 +479,7 @@ public class Viewer {
 
 						filmes.editarFilmePeloNome(filmes.listarPorfilme(nome).getNome(), filmes.listarPorfilme(nome).getDescricao(),
 								filmes.listarPorfilme(nome).getGenero(), filmes.listarPorfilme(nome).getAtor(),
-								destaque);
+								destaque,false);
 
 						break;
 						
@@ -932,6 +932,174 @@ public class Viewer {
 
 				
 				break;
+				
+			case 16:
+				
+				
+				System.out.println("Qual o nome da serie que deseja alterar? ");
+				nome = sc.next() + sc.nextLine();
+
+				if (series.listarPorSerie(nome) == null) {
+					System.out.println("Serie não encontrado, por favor verifique o nome");
+					aux.carregar();
+				} else {
+
+					System.out.println(series.listarPorSerie(nome));
+					System.out.println("Qual informação deseja alterar: ");
+					System.out.println("1 - Nome: " + series.listarPorSerie(nome).getNome());
+					System.out.println("2 - Descrição: " + series.listarPorSerie(nome).getDescricao());
+					System.out.println("3 - Genero: " + series.listarPorSerie(nome).getGenero());
+					System.out.println("4 - Atores: " + series.listarPorSerie(nome).getAtor());
+					System.out.println("5 - Destaque: " + series.listarPorSerie(nome).isDestaque());
+					System.out.println("6 - Todos");
+					System.out.println("7 - Sair");
+					System.out.print("Opção: ");
+					int ed = sc.nextInt();
+
+					switch (ed) {
+
+					case 1:
+
+						System.out.print("Digite o novo nome: ");
+						String nomeAntigo = series.listarPorSerie(nome).getNome();
+						nome = sc.next() + sc.nextLine();
+
+						System.out.println(nome);
+						series.editarSeriePeloNome(nome, series.listarPorSerie(nomeAntigo).getDescricao(),
+								series.listarPorSerie(nomeAntigo).getGenero(), series.listarPorSerie(nomeAntigo).getAtor(),
+								series.listarPorSerie(nomeAntigo).isDestaque(), series.listarPorSerie(nomeAntigo).getEpisodio(),  true);
+
+						break;
+
+					case 2:
+						
+						System.out.print("Digite o nova descrição: ");
+						String descricao = sc.next() + sc.nextLine();
+
+						series.editarSeriePeloNome(series.listarPorSerie(nome).getNome(), descricao,
+								series.listarPorSerie(nome).getGenero(), series.listarPorSerie(nome).getAtor(),
+								series.listarPorSerie(nome).isDestaque(), series.listarPorSerie(nome).getEpisodio(), false);
+
+						break;
+
+					case 3:
+						
+						System.out.print("Digite o nova descrição: ");
+						String opcaoScope;
+						do {
+							System.out.print("Digite o nome do genero: ");
+							String generoIn = sc.next() + sc.nextLine();
+
+							genero = new GeneroDao();
+							genero.cadastrar(generoIn);
+
+							System.out.print("Deseja adicionar mais um genero? Y/N: ");
+							opcaoScope = sc.next() + sc.nextLine();
+
+						} while (opcaoScope.equalsIgnoreCase("Y"));
+
+						opcaoScope = null;
+
+
+						series.editarSeriePeloNome(series.listarPorSerie(nome).getNome(), series.listarPorSerie(nome).getDescricao(),
+								genero.listar(), series.listarPorSerie(nome).getAtor(),
+								series.listarPorSerie(nome).isDestaque(),series.listarPorSerie(nome).getEpisodio(),false);
+
+						break;
+						
+					case 4:
+						System.out.print("Digite o nova descrição: ");
+						do {
+							System.out.print("Digite o nome do ator: ");
+							String atorIn = sc.next() + sc.nextLine();
+							
+							System.out.print("Digite a nacionalidade do ator: ");
+							String nascionalidade = sc.next() + sc.nextLine();
+
+							ator = new AtorDao();
+							ator.cadastrar(atorIn, nascionalidade);
+
+							System.out.print("Deseja adicionar mais um genero? Y/N: ");
+							opcaoScope = sc.next() + sc.nextLine();
+
+						} while (opcaoScope.equalsIgnoreCase("Y"));
+
+						opcaoScope = null;
+
+
+						series.editarSeriePeloNome(series.listarPorSerie(nome).getNome(), series.listarPorSerie(nome).getDescricao(),
+								series.listarPorSerie(nome).getGenero(), ator.listar(),
+								series.listarPorSerie(nome).isDestaque(),series.listarPorSerie(nome).getEpisodio(),false);
+
+						break;
+						
+					case 5:
+						
+						System.out.print("Digite o novo destaque: true ou false");
+						Boolean destaque = sc.nextBoolean();
+
+						series.editarSeriePeloNome(series.listarPorSerie(nome).getNome(), series.listarPorSerie(nome).getDescricao(),
+								series.listarPorSerie(nome).getGenero(), series.listarPorSerie(nome).getAtor(),
+								destaque,series.listarPorSerie(nome).getEpisodio(),false);
+
+						break;
+						
+					case 6:
+						
+						System.out.println("\n");
+						System.out.print("Digite o nome do filme: ");
+						 nome = sc.next() + sc.nextLine();
+						System.out.print("Digite uma descrição para o  " + nome + ": ");
+						descricao = sc.next() + sc.nextLine();
+					
+						do {
+							System.out.print("Digite o nome do genero: ");
+							String generoIn = sc.next() + sc.nextLine();
+
+							genero = new GeneroDao();
+							genero.cadastrar(generoIn);
+
+							System.out.print("Deseja adicionar mais um genero? Y/N: ");
+							opcaoScope = sc.next() + sc.nextLine();
+
+						} while (opcaoScope.equalsIgnoreCase("Y"));
+
+						opcaoScope = null;
+
+						do {
+							System.out.print("Digite o nome do ator: ");
+							String atorIn = sc.next() + sc.nextLine();
+							System.out.print("Digite a nacionalidade do: " + atorIn + ": ");
+							String nascionalidadeIn = sc.next() + sc.nextLine();
+
+							ator.cadastrar(atorIn, nascionalidadeIn);
+
+							System.out.print("Deseja adicionar mais um autor? Y/N: ");
+							opcaoScope = sc.next() + sc.nextLine();
+
+						} while (opcaoScope.equalsIgnoreCase("Y"));
+
+						System.out
+								.print("O filme: " + nome + " será destaque para que seja apresentado na tela principal? [true ou false]: ");
+						destaque = sc.nextBoolean();
+
+						series.cadastrar(nome, descricao, genero.listar(), ator.listar(), destaque, episodio.listar());				
+
+					break;
+					
+					case 7:						
+						break;
+						
+					default:
+						System.out.println("Opção invalida");
+						break;
+
+					}
+
+				}
+
+				break;
+				
 				
 			case 17:
 				

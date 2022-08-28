@@ -12,12 +12,22 @@ import br.com.fiap.checkpoint1.fiapflix.model.Serie;
 /***
  * Classe responsável por cadastrar, excluir e listar um serie
  * @author Luan Reis
+ * @author Henrique Cesar
+ * @author Dennys Nascimento
+ * @author Gustavo Fontes
+ * @author Rodrigo Machado
  */
 
 public class SerieDao {
 
-	// A colecao que armazena os seriees da aplicacao
+	/**
+	 *  A colecao que armazena os seriees da aplicacao
+	 */
 	private List<Serie> lista = new ArrayList<>();
+	
+	/**
+	 * Armazena o id de uma série cadastrada na lista
+	 */
 	private int id;
 
 	/**
@@ -39,11 +49,9 @@ public class SerieDao {
 		for (int i = 0; i < lista.size(); i++) {
 			if (lista.get(i).getId() == id) {
 				lista.remove(i);
-				System.out.println("Removido com sucesso");
 				return true;
 			}
 		}
-		System.out.println("ID não encontrado, tente novamente");
 		return false;
 	}
 
@@ -57,11 +65,9 @@ public class SerieDao {
 		for (int i = 0; i < lista.size(); i++) {
 			if (lista.get(i).getNome().equalsIgnoreCase(nome)) {
 				lista.remove(i);
-				System.out.println("Removido com sucesso");
 				return true;
 			}
 		}
-		System.out.println("serie não encontrato, tente novamente");
 		return false;
 	}
 	
@@ -77,7 +83,6 @@ public class SerieDao {
 				return lista.get(i) ;
 			}
 		}
-		System.out.println("ID não encontrado, tente novamente");
 		return null;
 		
 	}
@@ -94,15 +99,17 @@ public class SerieDao {
 				return lista.get(i);
 			}
 		}
-		System.out.println("serie não encontrado, tente novamente");
 		return null;
 	}
 	
+	/**
+	 * Retorna a lista de séries cadastradas
+	 * @return a lista de séries
+	 */
 	public List<Serie> listarTodos() {		
 		return lista;
 	}
-	
-	
+		
 	/**
 	 * Método que lista todos os series em destaques
 	 * 
@@ -118,7 +125,7 @@ public class SerieDao {
 				return destaques;
 			}
 		}
-		System.out.println("Não foi encontrado nenhum resultado, tente novamente");
+
 		return null;
 	}
 	
@@ -136,11 +143,10 @@ public class SerieDao {
 		for (int i = 0; i < lista.size(); i++) {
 			if (lista.get(i).getId() == id) {
 				lista.set(i, new Serie(id, nome, descricao, genero, ator, destaque, episodio));
-				System.out.println("serie atualizado com sucesso");
 				return lista.get(i);
 			}
 		}
-		System.out.println("Não foi encontrado nenhum resultado, tente novamente");
+
 		return null;
 	}
 	
@@ -152,23 +158,24 @@ public class SerieDao {
 	 * Examplo
 	 * serie.editarseriePeloNome(new serie(10, "Harry potter", "Harry potter teve os pais mortos desde que criança", "Ficcao", "Daniel", true));
 	 */
-	public Serie editarseriePeloNome(int id, String nome, String descricao, List<Genero> genero, List<Ator> ator, boolean destaque,
-			List<Episodio> episodio){
+	public Serie editarSeriePeloNome(String nome, String descricao, List<Genero> genero, List<Ator> ator, boolean destaque, List<Episodio> episodio, boolean flag ){
 		for (int i = 0; i < lista.size(); i++) {
-			if (lista.get(i).getNome().equals(nome)) {
-				lista.set(i, new Serie(id, nome, descricao, genero, ator, destaque, episodio));
-				System.out.println("serie atualizado com sucesso");
+			
+			
+			if(flag) {
+				lista.set(i, new Serie(lista.get(i).getId(),nome, descricao, genero, ator, destaque, episodio));
+				return lista.get(i);
+			}
+			
+			if (lista.get(i).getNome().equalsIgnoreCase(nome)) {
+				lista.set(i, new Serie(lista.get(i).getId(),nome, descricao, genero, ator, destaque, episodio));
 				return lista.get(i);
 			}
 			
 		}
-		System.out.println("Não foi encontrado nenhum resultado, tente novamente");
 		return null;
 	}
 	
-	
-
-
 	/**
 	 * Retorna o tamanho de series.
 	 */
