@@ -72,7 +72,7 @@ public class Assets {
 	 * no encerramento do projeto
 	 */
 	public void fim() throws InterruptedException{
-
+	
 		
 		System.out.print("Encerrando");
 		
@@ -83,7 +83,12 @@ public class Assets {
 			Thread.sleep(500);
 			
 		}
-		System.out.println();
+
+		for (int i = 0; i < 5; i++) {
+
+			System.out.print("\n");
+
+		}
 		
 		
 		

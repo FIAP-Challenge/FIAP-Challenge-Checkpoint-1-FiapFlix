@@ -553,7 +553,7 @@ public class Viewer {
 					resp = sc.next();
 					
 					if(resp.equalsIgnoreCase("Y")){
-						
+						System.out.println("Removido com sucesso");
 						filmes.removerPorId(id);
 					}else {
 						System.out.println("Abortado");
@@ -583,7 +583,7 @@ public class Viewer {
 					resp = sc.next();
 					
 					if(resp.equalsIgnoreCase("Y")){
-						
+						System.out.println("Removido com sucesso");
 						filmes.removerPorNome(nome);
 					}else {
 						System.out.println("Abortado");
@@ -1115,7 +1115,7 @@ public class Viewer {
 					resp = sc.next();
 					
 					if(resp.equalsIgnoreCase("Y")){
-						
+						System.out.println("Removido com sucesso");
 						series.removerPorId(id);
 					}else {
 						System.out.println("Abortado");
@@ -1144,7 +1144,7 @@ public class Viewer {
 					resp = sc.next();
 					
 					if(resp.equalsIgnoreCase("Y")){
-						
+						System.out.println("Removido com sucesso");
 						series.removerPorNome(nome);
 					}else {
 						System.out.println("Abortado");

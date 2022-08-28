@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.fiap.checkpoint1.fiapflix.model.Ator;
 import br.com.fiap.checkpoint1.fiapflix.model.Episodio;
+import br.com.fiap.checkpoint1.fiapflix.model.Filme;
 import br.com.fiap.checkpoint1.fiapflix.model.Genero;
 import br.com.fiap.checkpoint1.fiapflix.model.Serie;
 
@@ -106,7 +107,12 @@ public class SerieDao {
 	 * Retorna a lista de séries cadastradas
 	 * @return a lista de séries
 	 */
-	public List<Serie> listarTodos() {		
+	public List<Serie> listarTodos() {
+		
+		if(lista.size() == 0) {
+			return null;
+		}
+		
 		return lista;
 	}
 		
