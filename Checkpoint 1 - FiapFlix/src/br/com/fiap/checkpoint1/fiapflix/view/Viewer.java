@@ -57,7 +57,7 @@ public class Viewer {
 			System.out.print("|                                                 |\n");
 			System.out.print("| --> Series                                      |\n");
 			System.out.print("| ---> Cadastros                                  |\n");
-			System.out.print("| ----> Opção 10 - Cadastrar novo filme           |\n");
+			System.out.print("| ----> Opção 10 - Cadastrar nova serie           |\n");
 			System.out.print("| ----> Opção 11 - Listar todos                   |\n");
 			System.out.print("| ----> Opção 12 - Listar apenas destaques        |\n");
 			System.out.print("| ----> Opção 13 - Listar por ID                  |\n");
